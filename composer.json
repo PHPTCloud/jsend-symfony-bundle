@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "JsendStandart\\": "src/"
+            "JsendStandard\\": "src/"
         }
     },
     "require-dev": {
