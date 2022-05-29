@@ -41,11 +41,9 @@ class ResponseFactory
         if (!empty($responseBodyObject->getData())) {
             $body['data'] = $responseBodyObject->getData();
         }
-        $body     = [
-            'status' => $responseBodyObject->getStatus(),
-            'code'   => $responseBodyObject->getCode(),
-        ];
-        $response = new JsonResponse($body);
+        $body['status'] = $responseBodyObject->getStatus();
+        $body['code']   = $responseBodyObject->getCode();
+        $response       = new JsonResponse($body);
         $response->setStatusCode($responseBodyObject->getCode());
 
         return $response;
