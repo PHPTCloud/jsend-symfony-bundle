@@ -2,7 +2,7 @@ parameters:
   jsend_standard.response_factory.class: JsendStandard\Factory\ResponseFactory
 
 services:
-  jsend_standard.response_factory:
+  JsendStandard\Factory\ResponseFactory:
     class: "%jsend_standard.response_factory.class%"
     public: true
     autowire: true
