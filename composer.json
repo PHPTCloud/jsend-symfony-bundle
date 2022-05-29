@@ -1,0 +1,31 @@
+{
+    "name": "tcloud.ax/symfony-jsend-bundle",
+    "description": "Implementation of jsend recommendations for http responses",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexei Yudov",
+            "email": "tcloud.ax@gmail.com"
+        }
+    ],
+    "keywords": [
+        "jsend",
+        "symfony"
+    ],
+    "require": {
+        "php": ">=7.4",
+        "symfony/http-foundation": "^5.4",
+        "symfony/config": "^5.4",
+        "symfony/dependency-injection": "^5.4",
+        "symfony/http-kernel": "^5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "JsendStandart\\": "src/"
+        }
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.6"
+    }
+}
