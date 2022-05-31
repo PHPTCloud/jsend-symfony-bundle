@@ -4,6 +4,12 @@
 
 Implementation of [jsend](https://github.com/omniti-labs/jsend) specification for http responses
 
+# Install
+
+```bash
+composer require tcloud.ax/symfony-jsend-bundle
+```
+
 ## Usage
 
 ```php
