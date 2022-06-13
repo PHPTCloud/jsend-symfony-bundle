@@ -1,6 +1,6 @@
 # Symfony jsend bundle
 
-![version](https://img.shields.io/badge/version-v1.0.1-blue) ![docs](https://img.shields.io/badge/docs-yes-blue)  ![license](https://img.shields.io/badge/license-MIT-brightgreen) ![useful](https://img.shields.io/badge/Maintained%3F-yes-brightgreen)
+![version](https://img.shields.io/badge/version-1.0.2-blue) ![tests](https://img.shields.io/badge/tests-yes-blue) ![docs](https://img.shields.io/badge/docs-yes-blue)  ![license](https://img.shields.io/badge/license-MIT-brightgreen) ![useful](https://img.shields.io/badge/Maintained%3F-yes-brightgreen)
 
 Implementation of [jsend](https://github.com/omniti-labs/jsend) specification for http responses
 
@@ -23,7 +23,7 @@ $responseFactory->createJsonResponse(new ResponseBodyObject(ResponseBodyObject::
 
 ```php
 $responseFactory->createJsonResponse(new ResponseBodyObject(
-    ResponseBodyObject::STATUS_ERROR,
+    ResponseBodyObject::STATUS_FAIL,
     [],
     400,
     'validation error'
@@ -32,8 +32,9 @@ $responseFactory->createJsonResponse(new ResponseBodyObject(
 
 ```php
 $responseFactory->createJsonResponse(new ResponseBodyObject(
-    ResponseBodyObject::STATUS_FAIL,
+    ResponseBodyObject::STATUS_ERROR,
     [],
-    500
+    500,
+    'Internal server error'
 ));
 ```
