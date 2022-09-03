@@ -29,5 +29,13 @@
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.6",
         "phpunit/phpunit": "^9.5"
+    },
+    "scripts": {
+        "qa:code_style": "./vendor/bin/phpcs --standard=./phpcs.xml -p --colors --warning-severity=0",
+        "qa:php_unit": "php vendor/bin/phpunit ./tests/",
+        "qa:test": [
+            "@qa:code_style",
+            "@qa:php_unit"
+        ]
     }
 }

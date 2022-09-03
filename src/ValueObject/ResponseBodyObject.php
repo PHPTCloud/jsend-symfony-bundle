@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace JsendStandard\ValueObject;
 
 use JsendStandard\Exception\JsendStandardException;
+use JsendStandard\Interfaces\ResponseBodyObjectInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @author tcloud <tcloud.ax@gmail.com>
- * @since  v1.0.0
+ * @since  v1.1.0
  */
-final class ResponseBodyObject
+final class ResponseBodyObject implements ResponseBodyObjectInterface
 {
     public const STATUS_SUCCESS = 'success'; // All went well, and (usually) some data was returned.
     public const STATUS_FAIL    = 'fail';    // There was a problem with the data submitted, or
@@ -29,16 +31,20 @@ final class ResponseBodyObject
      * @param int         $code
      * @param string|null $message
      */
-    public function __construct(string $status, array $data = [], int $code = 200, ?string $message = null)
-    {
+    public function __construct(
+        string $status,
+        array $data = [],
+        int $code = Response::HTTP_OK,
+        ?string $message = null
+    ) {
         $statuses = [self::STATUS_ERROR, self::STATUS_FAIL, self::STATUS_SUCCESS];
         if (!in_array($status, $statuses, true)) {
             throw new JsendStandardException(sprintf('Unsupported "status" value %s', $status));
         }
-        $this->data    = $data;
-        $this->status  = $status;
-        $this->code    = $code;
-        $this->message = $message;
+        $this->data       = $data;
+        $this->status     = $status;
+        $this->code       = $code;
+        $this->message    = $message;
     }
 
     /**

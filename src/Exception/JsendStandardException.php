@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace JsendStandard\Exception;
 
-use Exception;
+use RuntimeException;
 
 /**
  * @author tcloud <tcloud.ax@gmail.com>
  * @since  v1.0.0
  */
-class JsendStandardException extends Exception
+class JsendStandardException extends RuntimeException
 {
 }

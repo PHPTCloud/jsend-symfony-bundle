@@ -4,64 +4,77 @@ declare(strict_types=1);
 
 namespace JsendStandard\Factory;
 
+use JsendStandard\Exception\UnexpectedResponseTypeException;
+use JsendStandard\Interfaces\ResponseBodyObjectInterface;
+use JsendStandard\Interfaces\ResponseFactoryInterface;
 use JsendStandard\ValueObject\ResponseBodyObject;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @author tcloud <tcloud.ax@gmail.com>
- * @since  v1.0.0
+ * @since  v1.1.0
  */
-class ResponseFactory
+class ResponseFactory implements ResponseFactoryInterface
 {
     /**
-     * @param ResponseBodyObject $responseBodyObject
-     *
-     * @return JsonResponse
+     * @inheritDoc
      */
-    public function createJsonResponse(ResponseBodyObject $responseBodyObject): JsonResponse
+    public function createResponse(string $type, ResponseBodyObjectInterface $body): Response
     {
-        $status = $responseBodyObject->getStatus();
-        if ($status === ResponseBodyObject::STATUS_SUCCESS) {
-            return $this->createSuccessResponse($responseBodyObject);
+        switch ($type) {
+            case JsonResponse::class:
+                return $this->createJsonResponse($body);
+            case Response::class:
+                return $this->createDefaultResponse($body);
+            default:
+                throw new UnexpectedResponseTypeException();
+        }
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function createJsonResponse(ResponseBodyObjectInterface $body): Response
+    {
+        $responseBody = $this->buildResponseBody($body);
+
+        return new JsonResponse($responseBody, $body->getCode());
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function createDefaultResponse(ResponseBodyObjectInterface $body): Response
+    {
+        $responseBody = $this->buildResponseBody($body);
+
+        return new Response(json_encode($responseBody), $body->getCode());
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function buildResponseBody(ResponseBodyObjectInterface $body): array
+    {
+        if (ResponseBodyObject::STATUS_SUCCESS === $body->getStatus()) {
+            $responseBody = [
+                'status' => $body->getStatus(),
+                'data'   => $body->getData(),
+            ];
+        } elseif (ResponseBodyObject::STATUS_FAIL === $body->getStatus()) {
+            $responseBody = [
+                'status'  => $body->getStatus(),
+                'message' => $body->getMessage(),
+                'data'    => $body->getData(),
+            ];
         } else {
-            return $this->createErrorResponse($responseBodyObject);
+            $responseBody = [
+                'status'  => $body->getStatus(),
+                'message' => $body->getMessage(),
+            ];
         }
-    }
 
-    /**
-     * @param ResponseBodyObject $responseBodyObject
-     *
-     * @return JsonResponse
-     */
-    private function createErrorResponse(ResponseBodyObject $responseBodyObject): JsonResponse
-    {
-        if (null !== $responseBodyObject->getMessage()) {
-            $body['message'] = $responseBodyObject->getMessage();
-        }
-        if (!empty($responseBodyObject->getData())) {
-            $body['data'] = $responseBodyObject->getData();
-        }
-        $body['status'] = $responseBodyObject->getStatus();
-        $body['code']   = $responseBodyObject->getCode();
-        $response       = new JsonResponse($body);
-        $response->setStatusCode($responseBodyObject->getCode());
-
-        return $response;
-    }
-
-    /**
-     * @param ResponseBodyObject $responseBodyObject
-     *
-     * @return JsonResponse
-     */
-    private function createSuccessResponse(ResponseBodyObject $responseBodyObject): JsonResponse
-    {
-        $response = new JsonResponse([
-            'data'   => $responseBodyObject->getData(),
-            'status' => $responseBodyObject->getStatus(),
-        ]);
-        $response->setStatusCode($responseBodyObject->getCode());
-
-        return $response;
+        return $responseBody;
     }
 }

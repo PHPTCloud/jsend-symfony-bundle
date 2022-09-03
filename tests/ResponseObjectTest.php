@@ -18,10 +18,10 @@ class ResponseObjectTest extends TestCase
         $response = $responseFactory->createJsonResponse($responseBodyObject);
 
         $sameResponse = new JsonResponse([
+            'status' => 'success',
             'data' => [
                 'foo',
             ],
-            'status' => 'success',
         ]);
 
         $this->assertSame(\strval($sameResponse), \strval($response));
@@ -38,9 +38,9 @@ class ResponseObjectTest extends TestCase
         $response = $responseFactory->createJsonResponse($responseBodyObject);
 
         $sameResponse = new JsonResponse([
-            'message' => JsonResponse::$statusTexts[400],
             'status' => 'fail',
-            'code' => 400,
+            'message' => $message,
+            'data' => [],
         ], 400);
 
         $this->assertSame(\strval($sameResponse), \strval($response));
@@ -57,10 +57,9 @@ class ResponseObjectTest extends TestCase
         $response = $responseFactory->createJsonResponse($responseBodyObject);
 
         $sameResponse = new JsonResponse([
-            'message' => JsonResponse::$statusTexts[500],
-            'status' => 'error',
-            'code' => 500,
-        ], 500);
+            'status' => ResponseBodyObject::STATUS_ERROR,
+            'message' => $message,
+        ], $httpCode);
 
         $this->assertSame(\strval($sameResponse), \strval($response));
     }
