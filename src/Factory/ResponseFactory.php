@@ -49,6 +49,7 @@ class ResponseFactory implements ResponseFactoryInterface
     {
         $responseBody = $this->buildResponseBody($body);
 
+        // @todo feature: create plain text in response
         return new Response(json_encode($responseBody), $body->getCode());
     }
 

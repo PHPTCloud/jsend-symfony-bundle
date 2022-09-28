@@ -14,11 +14,11 @@
         "symfony"
     ],
     "require": {
-        "php": ">=7.4",
-        "symfony/http-foundation": "^5.0",
-        "symfony/config": "^5.0",
-        "symfony/dependency-injection": "^5.0",
-        "symfony/http-kernel": "^5.0"
+        "php": ">=8.0",
+        "symfony/http-foundation": "^6.0",
+        "symfony/config": "^6.0",
+        "symfony/dependency-injection": "^6.0",
+        "symfony/http-kernel": "^6.0"
     },
     "autoload": {
         "psr-4": {

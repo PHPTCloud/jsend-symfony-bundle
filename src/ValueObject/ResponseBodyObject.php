@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @author tcloud <tcloud.ax@gmail.com>
- * @since  v1.1.0
+ * @since  v3.0.1
  */
 final class ResponseBodyObject implements ResponseBodyObjectInterface
 {
@@ -32,7 +32,7 @@ final class ResponseBodyObject implements ResponseBodyObjectInterface
      * @param string|null $message
      */
     public function __construct(
-        string $status,
+        string $status = self::STATUS_SUCCESS,
         array $data = [],
         int $code = Response::HTTP_OK,
         ?string $message = null
