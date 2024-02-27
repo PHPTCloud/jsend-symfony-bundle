@@ -1,5 +1,5 @@
 {
-    "name": "tcloud.ax/symfony-jsend-bundle",
+    "name": "PHPTCloud/symfony-jsend-bundle",
     "description": "Implementation of jsend recommendations for http responses",
     "type": "symfony-bundle",
     "license": "MIT",
@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "JsendStandard\\": "src/",
+            "PHPTCloud\\JsendStandard\\": "src/",
             "Tests\\": "tests/"
         }
     },
