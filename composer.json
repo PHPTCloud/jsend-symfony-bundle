@@ -1,5 +1,5 @@
 {
-    "name": "PHPTCloud/symfony-jsend-bundle",
+    "name": "phptcloud/symfony-jsend-bundle",
     "description": "Implementation of jsend recommendations for http responses",
     "type": "symfony-bundle",
     "license": "MIT",

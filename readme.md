@@ -7,7 +7,7 @@ Implementation of [jsend](https://github.com/omniti-labs/jsend) specification fo
 # Install
 
 ```bash
-composer require PHPTCloud/symfony-jsend-bundle
+composer require phptcloud/symfony-jsend-bundle
 ```
 
 ## Usage
