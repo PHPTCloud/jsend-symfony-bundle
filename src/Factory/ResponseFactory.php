@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace JsendStandard\Factory;
+namespace PHPTCloud\JsendStandard\Factory;
 
-use JsendStandard\Exception\UnexpectedResponseTypeException;
-use JsendStandard\Interfaces\ResponseBodyObjectInterface;
-use JsendStandard\Interfaces\ResponseFactoryInterface;
-use JsendStandard\ValueObject\ResponseBodyObject;
+use PHPTCloud\JsendStandard\Exception\UnexpectedResponseTypeException;
+use PHPTCloud\JsendStandard\Interfaces\ResponseBodyObjectInterface;
+use PHPTCloud\JsendStandard\Interfaces\ResponseFactoryInterface;
+use PHPTCloud\JsendStandard\ValueObject\ResponseBodyObject;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 

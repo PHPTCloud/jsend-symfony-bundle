@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace JsendStandard\ValueObject;
+namespace PHPTCloud\JsendStandard\ValueObject;
 
-use JsendStandard\Exception\JsendStandardException;
-use JsendStandard\Interfaces\ResponseBodyObjectInterface;
+use PHPTCloud\JsendStandard\Exception\JsendStandardException;
+use PHPTCloud\JsendStandard\Interfaces\ResponseBodyObjectInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 /**

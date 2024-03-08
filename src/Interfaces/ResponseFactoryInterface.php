@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace JsendStandard\Interfaces;
+namespace PHPTCloud\JsendStandard\Interfaces;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;

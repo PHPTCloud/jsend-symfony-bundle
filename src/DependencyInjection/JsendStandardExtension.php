@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace JsendStandard\DependencyInjection;
+namespace PHPTCloud\JsendStandard\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

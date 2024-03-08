@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace JsendStandard\Exception;
+namespace PHPTCloud\JsendStandard\Exception;
 
 use RuntimeException;
 

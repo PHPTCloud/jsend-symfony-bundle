@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace JsendStandard\Interfaces;
+namespace PHPTCloud\JsendStandard\Interfaces;
 
 /**
  * @author tcloud <tcloud.ax@gmail.com>

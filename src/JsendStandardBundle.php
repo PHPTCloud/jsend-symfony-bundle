@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace JsendStandard;
+namespace PHPTCloud\JsendStandard;
 
-use JsendStandard\DependencyInjection\JsendStandardExtension;
+use PHPTCloud\JsendStandard\DependencyInjection\JsendStandardExtension;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
