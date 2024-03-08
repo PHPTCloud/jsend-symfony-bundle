@@ -1,5 +1,9 @@
 # Symfony jsend bundle
 
+## Version 3.0.2
+
+Added JsendStandard\Interfaces\ResponseFactoryInterface auto-wiring in services.yml.
+
 ## Version 3.0.1
 
 symfony/http-foundation downgraded to ^6.0

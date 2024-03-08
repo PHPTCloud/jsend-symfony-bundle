@@ -6,3 +6,8 @@ services:
     class: "%jsend_standard.response_factory.class%"
     public: true
     autowire: true
+
+  JsendStandard\Interfaces\ResponseFactoryInterface:
+    class: "%jsend_standard.response_factory.class%"
+    public: true
+    autowire: true

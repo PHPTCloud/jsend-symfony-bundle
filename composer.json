@@ -11,7 +11,8 @@
     ],
     "keywords": [
         "jsend",
-        "symfony"
+        "symfony",
+        "php"
     ],
     "require": {
         "php": ">=8.0",
